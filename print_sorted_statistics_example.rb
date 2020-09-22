@@ -1,7 +1,16 @@
+require 'optparse'
+
 require_relative './server_log_analyzer/log_parser'
 require_relative './server_log_analyzer/statistics_provider'
 
-parsed_entries = ServerLogAnalyzer::LogParser.new("webserver.log").parse
+options = { log_file: "webserver.log" }
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: ruby print_sotred_statistics_example.rb [options]"
+  opts.on("-fNAME", "--logFile=NAME", "Log file to analyze(default: 'webserver.log')") { |v| options[:log_file] = v.to_s;}
+end.parse!
+
+parsed_entries = ServerLogAnalyzer::LogParser.new(options[:log_file]).parse
 statistics_provider = ServerLogAnalyzer::StatisticsProvider.new(parsed_entries)
 
 statistics_provider.calculate_endpoints_statistics
