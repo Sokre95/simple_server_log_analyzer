@@ -9,4 +9,4 @@
 ` rspec spec/`
 
 * Run statistics example
-`ruby print_sorted_statistics_example.rb -f <log-file>` or just `ruby print_sorted_statistics_example.rb` ('webserver.log' is default log file)
+`ruby parse.rb -f <log-file>` or just `ruby parse.rb` ('webserver.log' is default log file)
