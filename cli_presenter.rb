@@ -21,7 +21,7 @@ class CommandLinePresenter
 
     puts "\nOrdered descending by total visists:"
     @stats[:per_visitor].sort_by{ |k,v| v[:visits]}.reverse.each do |visitor, visitor_stat|
-      puts "#{visitor.ljust(20)} -> total: #{visitor_stat[:total_visits]}, unique:#{visitor_stat[:pages_visited].count}, pages visited: #{visitor_stat[:pages_visited]}"
+      puts "#{visitor.ljust(20)} -> total: #{visitor_stat[:visits]}, unique:#{visitor_stat[:pages_visited].count}, pages visited: #{visitor_stat[:pages_visited]}"
     end
 
     puts "\n#{"*" * 200}"
