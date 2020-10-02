@@ -9,7 +9,7 @@ RSpec.describe ServerLogAnalyzer::LogParser do
     ServerLogAnalyzer::LogParser.new(
       file_path: "./spec/../webserver.log",
       storage: storage, 
-      line_matcher: /(?<endpoint>\/(?:\w|\/)*)\s(?<ip>(?:\d{3}.?){4})?(?<rest>.*)*/
+      line_matcher: /(?<endpoint>\/(?:\w|\/)*)\s(?<ip>(?:\d{1,3}.?){4})?(?<rest>.*)*/
     )
   end
 
