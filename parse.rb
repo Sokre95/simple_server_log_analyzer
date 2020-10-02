@@ -14,7 +14,7 @@ end.parse!
 # Provide regex that matches the log file format 
 analyzer = ServerLogAnalyzer::Analyzer.new(
   file_path: options[:log_file],
-  line_matcher: /(?<endpoint>\/(?:\w|\/)*)\s(?<ip>(?:\d{3}.?){4})?(?<rest>.*)*/, # this can also be cli params
+  line_matcher: /(?<endpoint>\/(?:\w|\/)*)\s(?<ip>(?:\d{1,3}.?){4})?(?<rest>.*)*/, # this can also be cli params
   storage: ServerLogAnalyzer::SimpleArrayStorage.new,
 )
 
